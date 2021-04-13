@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stock chute Float TAV 1{% endblock %}
+
+{% block body %}
+<div class="row  d-flex align-items-center">
+  <div class="col-6">
+    <h1 class="m-3">Stock chutes Float TAV 1</h1>
+  </div>
+  <div class="col-6">
+    <a href="{{ asset('matiere') }}" class="btn btn-primary btn-lg">Gérer les matières</a>  
+  </div>
+</div>
+<div class="m-3">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Matière</th>
+        <th scope="col">Longueur</th>
+        <th scope="col">Largeur</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for chute in chutes %}
+      <tr class="table-primary">
+        <td>{{ chute.matiere.name }}</td>
+        <td>{{ chute.longueur }}</td>
+        <td>{{ chute.largeur }}</td>
+        <td>{{ chute.quantite }}</td>
+        <td>Column content</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

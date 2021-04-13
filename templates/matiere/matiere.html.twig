@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matières{% endblock %}
+
+{% block body %}
+<div class="row  d-flex align-items-center">
+  <div class="col-6">
+    <h1 class="m-3">Matières</h1>
+    <hr class="m-3">
+  </div>
+</div>
+
+
+<div class="row m-3 p-3" id="add-matiere">
+    <h2 class="col-6 p-0">Ajouter une matière</h2>
+    <div class="form-group col-6">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+<div class="m-3 matieres-list">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Matière</th>
+            <th scope="col">Modifier/Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for matiere in matieres %}
+            <tr class="table-primary">
+            <td>{{ matiere.name }}</td>
+            <td>
+                <a href="{{ asset('delete_matiere') }}">Supprimer</a>
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
