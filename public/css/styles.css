@@ -7,3 +7,10 @@
     background-color: darkgrey;
     width: 50%;
 }
+
+.delete {
+    color: red;
+}
+.edit {
+    color: blue;
+}

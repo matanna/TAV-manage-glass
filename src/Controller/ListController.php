@@ -18,7 +18,11 @@ class ListController extends AbstractController
     public function showListChute(EntityManagerInterface $manager, ChuteRepository $chuteRepository): Response
     {
         $chutes = $chuteRepository->findAll();
-        
+
+         /*foreach ($chutes as $chute) {
+            $manager->remove($chute);
+            $manager->flush();
+         }*/
 
         /*$matiere = new Matiere();
         $matiere->setName("Verre dépoli de 4mm");
