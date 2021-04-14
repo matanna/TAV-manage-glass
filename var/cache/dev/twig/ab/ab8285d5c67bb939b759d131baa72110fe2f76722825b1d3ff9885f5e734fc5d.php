@@ -85,9 +85,9 @@ class __TwigTemplate_b7b525101b5bdfc7dc9684da5a2ac09ad54a72fba2eda20ab53d4d36e39
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<div class=\"row  d-flex align-items-center\">
+        echo "<div class=\"row d-flex align-items-center\">
   <div class=\"col-6\">
-    <h1 class=\"m-3\">Stock chutes Float TAV 1</h1>
+    <h1 class=\"m-2\"><img src=\"img/TAV-LOGO-RVB_petit.jpg\" id=\"logo\" class=\"mr-5\"/>Stock chutes Float TAV 1</h1>
   </div>
   <div class=\"col-6\">
     <a href=\"";
@@ -331,9 +331,9 @@ class __TwigTemplate_b7b525101b5bdfc7dc9684da5a2ac09ad54a72fba2eda20ab53d4d36e39
 {% block title %}Stock chute Float TAV 1{% endblock %}
 
 {% block body %}
-<div class=\"row  d-flex align-items-center\">
+<div class=\"row d-flex align-items-center\">
   <div class=\"col-6\">
-    <h1 class=\"m-3\">Stock chutes Float TAV 1</h1>
+    <h1 class=\"m-2\"><img src=\"img/TAV-LOGO-RVB_petit.jpg\" id=\"logo\" class=\"mr-5\"/>Stock chutes Float TAV 1</h1>
   </div>
   <div class=\"col-6\">
     <a href=\"{{ asset('matiere') }}\" class=\"btn btn-primary btn-lg\">Gérer les matières</a>  

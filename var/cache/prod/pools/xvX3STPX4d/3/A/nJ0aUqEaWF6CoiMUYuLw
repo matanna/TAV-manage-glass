@@ -1,0 +1,57 @@
+<?php //%255B2d7a2d28e188f2d65083e357a8de5757%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            '_sqlExecutor' => [
+                $o[1],
+            ],
+            '_resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT m0_.id AS id_0, m0_.name AS name_1 FROM matiere m0_',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'e' => 'App\\Entity\\Matiere',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'name_1' => 'name',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'e' => null,
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'e',
+                    'name_1' => 'e',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Matiere',
+                    'name_1' => 'App\\Entity\\Matiere',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

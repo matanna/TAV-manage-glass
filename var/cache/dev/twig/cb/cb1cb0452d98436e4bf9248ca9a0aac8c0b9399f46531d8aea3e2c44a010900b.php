@@ -111,7 +111,7 @@ class __TwigTemplate_853439555c673c79003f12f6be2028ce3c883575c4349ea96aec1185d02
         // line 12
         echo "<div class=\"row  d-flex align-items-center\">
   <div class=\"col-3\">
-    <h1 class=\"m-3\">Matières</h1>
+    <h1 class=\"m-2\"><img src=\"img/TAV-LOGO-RVB_petit.jpg\" id=\"logo\" class=\"mr-5\"/>Matières</h1>
   </div>
   <div class=\"col-3\">
       <a href=\"";
@@ -291,7 +291,7 @@ class __TwigTemplate_853439555c673c79003f12f6be2028ce3c883575c4349ea96aec1185d02
 {% block body %}
 <div class=\"row  d-flex align-items-center\">
   <div class=\"col-3\">
-    <h1 class=\"m-3\">Matières</h1>
+    <h1 class=\"m-2\"><img src=\"img/TAV-LOGO-RVB_petit.jpg\" id=\"logo\" class=\"mr-5\"/>Matières</h1>
   </div>
   <div class=\"col-3\">
       <a href=\"{{ asset('/') }}\" class=\"btn btn-primary btn-lg\">Retour à la liste des chutes</a>
@@ -378,6 +378,6 @@ class __TwigTemplate_853439555c673c79003f12f6be2028ce3c883575c4349ea96aec1185d02
 
 {% endblock %}
 
-", "matiere/matiere.html.twig", "C:\\ProjetsSymfony\\TAV-manage-glass\\templates\\matiere\\matiere.html.twig");
+", "matiere/matiere.html.twig", "C:\\ProjetsTAV\\Coupe float\\Chute_Float\\templates\\matiere\\matiere.html.twig");
     }
 }

@@ -1,0 +1,77 @@
+<?php //%255B2ac3989ae8b2b608099d02d55aaf3ac0%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            '_sqlExecutor' => [
+                $o[1],
+            ],
+            '_resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT c0_.id AS id_0, c0_.longueur AS longueur_1, c0_.largeur AS largeur_2, c0_.quantite AS quantite_3, c0_.used AS used_4, c0_.matiere_id AS matiere_id_5 FROM chute c0_ ORDER BY c0_.matiere_id ASC',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'c' => 'App\\Entity\\Chute',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'longueur_1' => 'longueur',
+                    'largeur_2' => 'largeur',
+                    'quantite_3' => 'quantite',
+                    'used_4' => 'used',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'matiere_id_5' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'c' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'matiere_id_5' => 'matiere_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'c',
+                    'longueur_1' => 'c',
+                    'largeur_2' => 'c',
+                    'quantite_3' => 'c',
+                    'used_4' => 'c',
+                    'matiere_id_5' => 'c',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Chute',
+                    'longueur_1' => 'App\\Entity\\Chute',
+                    'largeur_2' => 'App\\Entity\\Chute',
+                    'quantite_3' => 'App\\Entity\\Chute',
+                    'used_4' => 'App\\Entity\\Chute',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
