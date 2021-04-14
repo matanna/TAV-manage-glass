@@ -33,8 +33,16 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/edit_matiere/([^/]++)(*:191)'
-                .'|/delete_matiere/([^/]++)(*:223)'
+                .'|/use_chute/([^/]++)(*:188)'
+                .'|/noUse_chute/([^/]++)(*:217)'
+                .'|/delete_(?'
+                    .'|chute/([^/]++)(*:250)'
+                    .'|matiere/([^/]++)(*:274)'
+                .')'
+                .'|/edit_(?'
+                    .'|chute/([^/]++)(*:306)'
+                    .'|matiere/([^/]++)(*:330)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -45,9 +53,13 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        191 => [[['_route' => 'edit_matiere', '_controller' => 'App\\Controller\\MatiereController::editMatiere'], ['id'], null, null, false, true, null]],
-        223 => [
-            [['_route' => 'delete_matiere', '_controller' => 'App\\Controller\\MatiereController::deleteMatiere'], ['id'], null, null, false, true, null],
+        188 => [[['_route' => 'use_chute', '_controller' => 'App\\Controller\\ListController::useChute'], ['id'], null, null, false, true, null]],
+        217 => [[['_route' => 'noUse_chute', '_controller' => 'App\\Controller\\ListController::noUseChute'], ['id'], null, null, false, true, null]],
+        250 => [[['_route' => 'delete_chute', '_controller' => 'App\\Controller\\ListController::deleteMatiere'], ['id'], null, null, false, true, null]],
+        274 => [[['_route' => 'delete_matiere', '_controller' => 'App\\Controller\\MatiereController::deleteMatiere'], ['id'], null, null, false, true, null]],
+        306 => [[['_route' => 'edit_chute', '_controller' => 'App\\Controller\\ListController::editchute'], ['id'], null, null, false, true, null]],
+        330 => [
+            [['_route' => 'edit_matiere', '_controller' => 'App\\Controller\\MatiereController::editMatiere'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

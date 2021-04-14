@@ -19,22 +19,18 @@ class ChuteRepository extends ServiceEntityRepository
         parent::__construct($registry, Chute::class);
     }
 
-    // /**
-    //  * @return Chute[] Returns an array of Chute objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Chute[] Returns an array of Chute objects
+     */
+    public function findAllByOrder()
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('c.matiere', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Chute

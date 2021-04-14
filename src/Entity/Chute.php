@@ -38,6 +38,11 @@ class Chute
      */
     private $matiere;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $used;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,18 @@ class Chute
     public function setMatiere(?Matiere $matiere): self
     {
         $this->matiere = $matiere;
+
+        return $this;
+    }
+
+    public function getUsed(): ?bool
+    {
+        return $this->used;
+    }
+
+    public function setUsed(?bool $used): self
+    {
+        $this->used = $used;
 
         return $this;
     }

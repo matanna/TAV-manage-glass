@@ -11,6 +11,31 @@
     <a href="{{ asset('matiere') }}" class="btn btn-primary btn-lg">Gérer les matières</a>  
   </div>
 </div>
+<hr>
+
+<div class="m-3">
+  <h2>Ajouter une chute</h2>
+  <table class="table table-hover">
+    <tbody>
+      <tr class="table-secondary">
+        {{ form_start(form) }}
+        <td>{{ form_row(form.matiere) }}</td>
+        <td>{{ form_row(form.longueur, {'attr': {'placeholder': "Longueur"}}) }}</td>
+        <td>{{ form_row(form.largeur, {'attr': {'placeholder': "Largeur"}}) }}</td>
+        <td>{{ form_row(form.quantite, {'attr': {'placeholder': "Quantité"}}) }}</td>
+        <td><button type="submit" class="btn btn-primary">Enregistrer</button></td>
+        {{ form_end(form) }}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% for message in app.flashes('warning') %}
+    <div class="flash-notice">
+        <p class="text-warning m-3">{{ message }}</p>
+    </div>
+{% endfor %}
+
 <div class="m-3">
   <table class="table table-hover">
     <thead>
@@ -19,7 +44,9 @@
         <th scope="col">Longueur</th>
         <th scope="col">Largeur</th>
         <th scope="col">Quantité</th>
-        <th scope="col">Actions</th>
+        <th scope="col">Disponibilté</th>
+        <th scope="col">Modifier</th>
+        <th scope="col">Supprimer</th>
       </tr>
     </thead>
     <tbody>
@@ -29,7 +56,68 @@
         <td>{{ chute.longueur }}</td>
         <td>{{ chute.largeur }}</td>
         <td>{{ chute.quantite }}</td>
-        <td>Column content</td>
+        <td>
+          {% if chute.used == true %}
+            <a href="{{ asset('noUse_chute/' ~ chute.id) }}" type="button" class="btn btn-outline-secondary">Annuler</a>
+            <span class="ml-3 text-primary">Non Disponible</span>
+          {% else %}
+            <a href="{{ asset('use_chute/' ~ chute.id) }}" type="button" class="btn btn-success">Utiliser</a>
+            <span class="ml-3 text-primary">Disponible</span>
+          {% endif %}
+        </td>
+        <td>
+            <a href="#" data-toggle="modal" data-target="{{ "#edit-chute" ~ chute.id }}" class="edit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                </svg>
+            </a>
+            <div class="modal" id="{{ "edit-chute" ~ chute.id }}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modifier</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="{{ "/edit_chute/" ~ chute.id }}">
+                            <h5 class="text-primary">{{ chute.matiere.name }}</h5>
+                            <hr>
+                            <div class="row">
+                              <div class="col-3"><label for="modify_longueur" class="mr-4">Longueur : </label></div>
+                              <div class="col-3"><input type="text" name="modify_longueur" id="modify_longueur" value="{{ chute.longueur }}"></div>
+                            </div>
+                            <div class="row mt-3">
+                              <div class="col-3"><label for="modify_longueur" class="mr-4">Largeur : </label></div>
+                              <div class="col-3"><input type="text" name="modify_largeur" id="modify_largeur" value="{{ chute.largeur }}"></div>
+                            </div>
+                            <div class="row mt-3">
+                              <div class="col-3"><label for="modify_longueur" class="mr-4">Quantité : </label></div>
+                              <div class="col-3"><input type="text" name="modify_quantite" id="modify_quantite" value="{{ chute.quantite }}"></div>
+                            </div>
+                            <div class="row mt-3">
+                              <div class="col-3"><button type="submit" class="btn btn-primary text-right">Modifier</button></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        {{ form_end(form) }}
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <a href="{{ asset('delete_chute/' ~ chute.id ) }}" class="delete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                </svg>
+            </a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

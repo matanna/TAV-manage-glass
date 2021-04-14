@@ -23,14 +23,15 @@ class MatiereController extends AbstractController
 
         $matiere = new Matiere();
 
-        $formNew = $this->createForm(MatiereType::class, $matiere);
+        $form = $this->createForm(MatiereType::class, $matiere);
 
-        $formNew->handleRequest($request);
+        $form->handleRequest($request);
 
-        if ($formNew->isSubmitted() && $formNew->isValid()) {
-            $newMatiere = $formNew->getData();
-            $matiere->setName($newMatiere->getName());
-            $manager->persist($matiere);
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $newMatiere = $form->getData();
+            
+            $manager->persist($newMatiere);
             $manager->flush();
 
             return $this->redirectToRoute('matiere');
@@ -40,7 +41,7 @@ class MatiereController extends AbstractController
 
         return $this->render('matiere/matiere.html.twig', [
             "matieres" => $matieres,
-            "form" => $formNew->createView()
+            "form" => $form->createView()
         ]);
     }
 
